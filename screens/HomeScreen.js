@@ -10,7 +10,10 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
-import { AmaticBold } from '../components/StyledText';
+import {
+  AmaticBold,
+  AmaticRegular,
+  Annie } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -22,28 +25,31 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
+          <TouchableOpacity onPress={this._handleHelpPress} style={{flex: 1}}>
+              <Image
+                source={
+                  __DEV__
+                    ? require('../assets/images/icon.png')
+                    : require('../assets/images/robot-prod.png')
+                }
+                style={styles.eightBall}
+              />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+            {/* Delete this text and uncomment to re-enable Development mode features */}
+            {/* {this._maybeRenderDevelopmentModeWarning()} */}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+            <Annie style={styles.getStartedText}>Get started by opening</Annie>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <AmaticBold style={styles.codeHighlightText}>screens/HomeScreen.js</AmaticBold>
             </View>
 
-            <Text style={styles.getStartedText}>
+            <Annie style={styles.getStartedText}>
               Hello my first React-App!
-            </Text>
+            </Annie>
           </View>
 
           <View style={styles.helpContainer}>
@@ -118,12 +124,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
+  eightBall: {
+    flex: 1,
+    maxWidth: 400,
+    marginTop: -25,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
   },
   getStartedContainer: {
     alignItems: 'center',
