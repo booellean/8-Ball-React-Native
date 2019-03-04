@@ -1,23 +1,16 @@
 import React from 'react';
 import Voice from 'react-native-voice';
-import { ScrollView, StyleSheet } from 'react-native';
+import {
+  Image,
+  TouchableOpacity,
+  Text,
+  StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
 export default class MicrophoneAccess extends React.Component {
   // static microphone = {
   //   access: false,
   // };
-
-  // async storeItem(key, item) {
-  //   try {
-  //       //we want to wait for the Promise returned by AsyncStorage.setItem()
-  //       //to be resolved to the actual value before returning the value
-  //       var jsonOfItem = await AsyncStorage.setItem(key, JSON.stringify(item));
-  //       return jsonOfItem;
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
 
   // render() {
   //   return (
@@ -29,22 +22,41 @@ export default class MicrophoneAccess extends React.Component {
   //   );
   // }
   constructor(props) {
-    Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
-    Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
-    Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
+    super(props)
+    // Voice.onSpeechStart = this.onSpeechStartHandler.bind(this);
+    // Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
+    // Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
   onStartButtonPress(e){
-    Voice.start('en-US');
+    // Voice.start('en-US');
+    console.log("The component function was called");
   }
   componentDidMount(){
     console.log("The Component mounted, something can happen");
   }
+  render() {
+    return (
+        // <TouchableOpacity onPress={this.onStartButtonPress()} style={{flex: 1}}>
+        //   <Image
+        //     source={require('../assets/images/icon.png')}
+        //     style={styles.eightBall}
+        //   />
+        // </TouchableOpacity>
+        <div>
+          This is a test to render to DOM!
+        </div>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+//   eightBall: {
+//     flex: 1,
+//     maxWidth: 400,
+//     marginTop: -150,
+//     resizeMode: 'contain',
+//   },
+// });

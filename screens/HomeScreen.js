@@ -25,14 +25,10 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-          <TouchableOpacity onPress={this._startSpeechEvent} style={{flex: 1}}>
-              <Image
-                source={require('../assets/images/icon.png')}
-                style={styles.eightBall}
-              />
-            </TouchableOpacity>
-          </View>
+
+          {/* <View style={styles.welcomeContainer}> */}
+            <MicrophoneAccess/>
+          {/* </View> */}
 
           <View style={styles.getStartedContainer}>
             {/* Delete this text and uncomment to re-enable Development mode features */}
@@ -102,7 +98,6 @@ export default class HomeScreen extends React.Component {
 
   _startSpeechEvent = () =>{
     console.log("The button was pressed");
-    <MicrophoneAccess />
   }
 }
 
@@ -110,6 +105,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
+  },
+  welcomeContainer: {
+    alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 20,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -120,17 +120,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  eightBall: {
-    flex: 1,
-    maxWidth: 400,
-    marginTop: -150,
-    resizeMode: 'contain',
   },
   getStartedContainer: {
     alignItems: 'center',
