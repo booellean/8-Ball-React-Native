@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { MicrophoneAccess } from '../components/MicrophoneAccess';
 
 import {
   AmaticBold,
@@ -25,13 +26,9 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-          <TouchableOpacity onPress={this._handleHelpPress} style={{flex: 1}}>
+          <TouchableOpacity onPress={this._startSpeechEvent} style={{flex: 1}}>
               <Image
-                source={
-                  __DEV__
-                    ? require('../assets/images/icon.png')
-                    : require('../assets/images/robot-prod.png')
-                }
+                source={require('../assets/images/icon.png')}
                 style={styles.eightBall}
               />
             </TouchableOpacity>
@@ -102,12 +99,17 @@ export default class HomeScreen extends React.Component {
       'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
     );
   };
+
+  _startSpeechEvent = () =>{
+    console.log("The button was pressed");
+    <MicrophoneAccess />
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
   eightBall: {
     flex: 1,
     maxWidth: 400,
-    marginTop: -25,
+    marginTop: -150,
     resizeMode: 'contain',
   },
   getStartedContainer: {
