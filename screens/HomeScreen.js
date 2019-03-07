@@ -26,9 +26,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-          {/* <View style={styles.welcomeContainer}> */}
-            <MicrophoneAccess/>
-          {/* </View> */}
+          {/* <MicrophoneAccess/> */}
 
           <View style={styles.getStartedContainer}>
             {/* Delete this text and uncomment to re-enable Development mode features */}
