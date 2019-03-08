@@ -4,9 +4,18 @@ import {
   Image,
   TouchableOpacity,
   Text,
+  View,
   StyleSheet } from 'react-native';
 
-export default class MicrophoneAccess extends React.Component {
+export class MicrophoneAccess extends React.Component {
+  constructor(props){
+    super(props)
+  }
+
+  onStartButtonPress(){
+    console.log("MicrophoneAccess button was pressed!");
+  }
+
   render() {
     return (
       <View>
@@ -37,4 +46,3 @@ welcomeContainer: {
     resizeMode: 'contain',
   },
 });
-
