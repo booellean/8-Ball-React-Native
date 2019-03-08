@@ -12,14 +12,14 @@ export class MicrophoneAccess extends React.Component {
     super(props)
   }
 
-  onStartButtonPress(){
-    console.log("MicrophoneAccess button was pressed!");
+  componentDidMount(){
+
   }
 
   render() {
     return (
-      <View>
-        <TouchableOpacity onPress={this.onStartButtonPress()} style={{flex: 1}}>
+      <View style={styles.welcomContainer}>
+        <TouchableOpacity onPress={this._onStartButtonPress} style={{flex: 1}}>
           <Image
             source={require('../assets/images/icon.png')}
             style={styles.eightBall}
@@ -27,6 +27,10 @@ export class MicrophoneAccess extends React.Component {
         </TouchableOpacity>
       </View>
     );
+  }
+
+  _onStartButtonPress(){
+    console.log("MicrophoneAccess button was pressed!");
   }
 }
 
